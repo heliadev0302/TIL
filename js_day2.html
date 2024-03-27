@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*익명함수
+        const myfunc = function(){
+            console.log("함수입니다 1")
+            console.log("함수입니다 2")
+            console.log("함수입니다 3")
+        }*/
+        /*선언적 함수
+        function myfunc(){
+            console.log("함수입니다 1")
+            console.log("함수입니다 2")
+            console.log("함수입니다 3")
+            }
+        myfunc()
+        console.log(myfunc)
+        console.log(typeof myfunc)
+        */
+        /*
+        function f(x){
+            return x*x
+        }
+        console.log(f(5))
+        */
+
+        //2000 2020 2040 2100년?
+        //4로 나누어 떨어지면 윤년
+        //100로 나누어 떨어지면 평년,
+        //400로 나누어 떨어지면 윤년
+        /*function isLeapYear(y){
+            if(y % 400 == 0){
+                console.log('윤년');
+            }
+            else if(y % 100 == 0){
+                console.log('평년');
+            }else if(y % 4 == 0){
+                console.log('윤년');
+            }
+            }
+            /*
+        inputYear = prompt('연도 입력', '');
+        isLeapYear(Number(inputYear));*/
+        /*
+        function sumAll(s, e){
+        let output=0
+        for(let i=s; i<=e; i++){
+            output+=i
+        }
+        return output
+        }
+        console.log(`1~100까지 합:${sumAll(1,100)}`)
+        */
+/*
+function getMin(arr){
+let res = arr[0]
+for(const item of arr){
+    if(res>item){
+    res=item
+    }
+}
+return res
+}
+const testArr=[30,50,20,10,40]
+        console.log(`최소값=${getMin(testArr)}`)
+*/
+/*
+        function var_arg(x,...items){//매개변수 개수가 일정치 않을때
+        console.log(items)
+        console.log(Array.isArray(x))
+        console.log(typeof(x))
+
+        if(typeof(x) == 'number'){
+        console.log("숫자입니다")
+        }
+        else if(Array.isArray(x)){
+        console.log("배열입니다")
+        }
+        }
+        var_arg(10,20)
+        var_arg(10,20,30,40,50)
+        var_arg([10,20,30,40,50])
+        */
+        /*
+        함수 정의
+        이름 : earnings
+            매개변수 : 시급, 시간 입력
+            리턴 : 급여
+            ex) 시급 : 10000원
+                시간 : 40시간
+                급여 : 400000원
+            earnings(10000,40) => 400000원
+        */
+        /*
+        function earnings(money, time){
+        let res = money * time
+        return res
+    }
+console.log(earnings(10000, 40))
+*/
+/*
+        function earnings(name, wage, hours, year=new Date().getFullYear()){
+            console.log(name)
+            console.log(wage)
+            console.log(hours)
+            console.log(year)
+
+        }
+        earnings("홍길동")
+        earnings("임꺽정", 10000)
+        earnings("이순신", 10000, 40)
+        */
+        /*
+        function test(){
+        console.log(arguments)
+        console.log(arguments.length)
+        for(i=0; i<arguments.length;i++){
+        console.log(arguments[i])
+        }
+        }
+        test(1,2)
+        */
+        /*
+        //콜백함수: 매개변수로 전달 되는 함수
+        function f(cb){
+        for(i=0;i<3;i++){
+            cb(i)
+            }
+        }
+        function myPrint(i){
+            console.log(`${i} 번째 콜백함수가 호출됐습니다`)
+        }
+        //f(myPrint)
+        f(function(i){
+            console.log(`${i} 번째 콜백함수가 호출됐습니다`)
+        })*/
+        //forEach:배열이 가지고 있는 함수
+        //콜백함수 호출
+        const num = [10,20,30]
+        num.forEach(function(value, index, array){
+        console.log(`${index}번째 요소: ${value}`)
+        })
+        //map: 배열이 가지고 있는 함수, 콜백 함수의 리턴 결과로 새로운 배열 생성
+        const num2 = [10,20,30]
+        res=num2.map(function(value, index, array){
+            return 2*value
+        })
+        console.log(res)
+        //filter: 배열이 가지고있는 함수
+        //콜백 함수의 리턴값이 true에 해당되는 값들로 새로운 배열 생성
+        const num3 = [10,20,30]
+        res=num3.filter(function(value, index, array){
+            return value%20==0
+        })
+        console.log(res)
+
+        //화살표 함수: => 화살표로 만든함수
+        const num4 = [1,2,3,4,5,6]
+           console.log( num4.filter((value) => value%2==0))
+        console.log( num4.map((value) => value*2))
+
+        //타이머함수
+        //setTimeout(콜백함수, 시간(밀리초)): 특정 시간후에 콜백함수를 1번호출
+        //clearTimeout(타이머id): setTimeout함수로 설정한 타이머 제거
+        setTimeout(() => {
+        console.log("3초타이머 종료")
+        clearInterval(intervalId)
+        },3*1000)
+
+        //setInterval(콜백함수, 시간(밀리초)):특정 시간 간격으로 콜백함수를 호출
+        //clearInterval(타이머id): setIntervalt함수로 설정한 타이머 제거
+        cnt=0
+        intervalId=setInterval(() => {
+        console.log(`1초마다 실행(${cnt}번째)`)
+        cnt++},1*1000)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
