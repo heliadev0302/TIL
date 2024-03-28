@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>//객체 선언
+    /*
+        const mypet = {
+            name:'하늘', //속성
+            eat:function(food){ //메소드
+            alert(this.name+"은"+food+"먹습니다")
+            }
+        }
+        mypet.eat("강아지밥")
+    */
+        const product = {
+        제품명: '망고',
+        유형: '당절임',
+        성분: '망고,설탕',
+        원산지: '필리핀'
+        }
+        console.log(product['제품명'])
+        console.log(product.성분)
+        const student={}
+        student.이름="홍길동",
+        student.취미="영화감상",
+        student.장래희망="데이터사이언티스트"
+
+        delete student.장래희망
+
+        console.log(student)
+        console.log(student.취미)
+
+        //stringify(): javacript객체를 json 문자열로 변환
+        console.log(JSON.stringify(student,null,2))
+
+//함수 선언 function(){} or () => {}
+        const test = {
+        a: function(){
+        console.log(this)
+        },
+        b:()=>{
+        console.log(this)
+        }
+        }
+        test.a()
+        test.b()
+
+        //객체 자료형: 속성,메서드를 갖는 객체가 갖는 자료형으로는 배열
+        //(배열도 객체)
+        const arr = []
+        arr.age = 35
+        console.log(arr)
+        //함수도 객체
+        function f(){}
+        f.age = 20
+        console.log(f.age)
+        //기본 자료형(객체아님,속성을 가질 수 없음): 숫자, 문자, 불린(참/거짓)
+        const x = 100
+        x.name = "홍길동"
+        console.log(x.name) //undefined
+
+        ///기본자료형이지만 객체로 정의
+        //숫자 -> 숫자객체(Number), 문자 -> 문자객체(String), 불린 -> 불린객체(Bloonena)
+
+        const obj_num=new  Number(100)
+        console.log(typeof obj_num) //object
+        obj_num.data=7
+        console.log(obj_num.data) //7출력
+
+        msg = "안녕하세요"
+        obj_msg = new String(msg)
+        console.log(obj_msg)
+        obj_msg.who = "홍길동"
+        console.log(obj_msg.who)
+
+        const msg2 = "하이"
+        console.log(msg2.who = "임꺽정") //일시적으로 저장
+        console.log(msg2.who) //일시적으로 저장된 속성이 제거
+
+        //prototye객체에 속성 또는 메서드를 추가하면, 모든 객체(기본자료형도 포함)에서 추가한 속성과 메서드를 사용할 수 있다.
+        //객체자료형.prototype.메소드명=finction(){}
+
+        //Number 클래스 (객체)에 power 메서드를 추가하면, 숫자(객체)들은 power 메서드를 호출 할 수 있다
+        Number.prototype.power = function(n){
+        return this.valueOf()**n
+        }
+        const a = 3
+        console.log(a.power(2))
+
+        const s = "안녕하세요"
+        console.log(s.indexOf("안녕"))//0
+        console.log(s.indexOf("하세요"))//2
+        console.log(s.indexOf("없는"))//-1
+
+        //문자열의 존재 유무를 조사하는 함수
+        /*
+        String.prototype.공부한다 = function(food){
+        if(food=="바나나"){
+        console.log("열심히 공부한다")
+        }}
+        const j_monkey = "엉덩이가빨간원숭이"
+        j_monkey.공부한다("바나나")
+        */
+
+        String.prototype.contain=function(data){
+        return this.indexOf(data)>=0
+        //this는 a2("안녕하세요")를 의미함
+        //"안녕하세요".indexOf("안녕")
+        }
+
+        const a2 = "안녕하세요" //a2는 "안녕하세요" 문자열이 저장된 객체
+        console.log(a2.contain("안녕"))
+        //a2는 문자열 객체이므로 String클래스가 가지고 있는 메서드, 속성사용가능
+
+        const a3 = "안녕하세요"
+        console.log(a3.contain("바이"))
+
+        //Array객체(배열)에 myContain메서드를 새롭게 추가
+        //myContain메서드 기능을 특정 데이터가 배열에 있는지 여부를 출력
+Array.prototype.myContain=function(data){
+return this.indexOf(data)>=0
+}
+       const arr2=[10,20,30]
+console.log(arr2.myContain(20)) //true
+console.log(arr2.myContain(50)) //false
+
+        const n2 =123.456789
+        console.log(n2)
+        console.log(n2.toFixed(2)) //thtndlgk 3째자리 반올림
+
+        const s3="  안녕  "
+        console.log(s3)
+        console.log(s3.trim())//문자열 앞/뒤 공백 제거
+
+        input="시가,종가,거래량"
+        s_input=input.trim()
+        ss_input=s_input.split(",")
+        console.log(s_input)
+        console.log(ss_input)
+
+        //csv, XML, JSON
+        //JSON.stringify():자바스크립트 객체를 JSON문자열로 변환
+
+        const data ={
+        name:'홍길동',
+        age:30,
+        addr:'서울특별시'
+        }
+        console.log(data) //객체 출력
+        console.log(JSON.stringify())  //객체 -> JSON 문자열로 변환하여 출력
+        console.log(JSON.stringify(data,null,4))
+
+        //JSON 문자열 -> 자바스크립객체로 변환하여 출력
+        const json_data = JSON.stringify(data)
+        console.log(JSON.parse(json_data))
+
+        //Math객체
+        const n5 =Math.random() //0<= ~ <1
+        console.log(n5)
+        //0 <= 값 < 10
+        console.log(n5*10)
+
+        //-5<=값<5
+        console.log((n5*10)-5)
+
+        //로또: 1~45
+        console.log(Math.floor(n5*45)+1)
+
+        console.log(Math.floor(0.1))
+        console.log(Math.floor(0.9))
+
+
+        </script>
+</head>
+<body>
+
+</body>
+</html>
