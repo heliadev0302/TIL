@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 문서 객체 이동
+    const divA = document.querySelector("#first")
+    const divB = document.querySelector("#second")
+
+    const toFirst = () => {
+        const myH2 = document.createElement("h2") // h2태그 생성
+        myH2.textContent = "이동하는 H2 태그"
+        divA.appendChild(myH2)
+        setTimeout(toSecond, 2000) // 2초 후 toSecond 함수 호출
+    }
+
+    const toSecond = () => {
+        const myH2 = divA.querySelector("h2") // 이미 생성된 h2태그를 찾음
+        divB.appendChild(myH2)
+        setTimeout(toFirst, 3000) // 3초 후 toFirst 호출
+    }
+
+    toFirst()
+    /*
+    // 문서 객체 추가
+    const myH1 = document.createElement("h1") // h1태그 추가
+    myH1.textContent = "문서 객체 추가"
+    myH1.style.color = "white"
+    myH1.style.backgroundColor = "black"
+    document.body.appendChild(myH1)
+    */
+    /*
+    const divs = document.querySelectorAll("body > div")
+    divs.forEach((d, i) => {
+        console.log(d, i)
+        const v = i * 20
+        d.style.height = `20px`
+        d.style.backgroundColor = `rgba(${v}, ${v}, ${v})`
+    })
+    */
+})
+</script>
+</head>
+<body>
+
+<div id ='first'>
+    <h1>첫번째 div태그</h1>
+</div>
+<div id ="second">
+     <h1>두번째 div태그</h1>
+</div>
+css: background-color, js:backgroundColor
+css: font-size, js: fontSize
+<div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div>
+<!--부모객체.appendChild(자식객체)-->
+</body>
+</html>

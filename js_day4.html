@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <script>
+       const h1=(text)=>`<h1>${text}</h1>`
+        //DOMContentLoaded 이벤트는 웹 문서를 모두 읽고 나서 발생됨
+        document.addEventListener('DOMContentLoaded', () => {
+           //<h1>2번째 script 태그</h1>
+         document.body.innerHTML += h1("1번째 script 태그")
+         } )
+   </script>
+</head>
+<body>
+html - 요소(html, head,...body,...span)
+js - 문서객체 -> 조합 -> 문서 객체 모델(DOM)
+head 태그 내부에 script 태그는 body 태그에 있는 문서 객체에 접근할 수 없다.
+head 태그 내부에 script 태그에서 body 태그에 있는 문서 객체에 접근하려면?
+화면에 body 태그에 있는 문서 객체를 모두 읽을때까지 기다려야 함
+    <script>
+        document.body.innerHTML += h1("2번째 script 태그")
+    </script>
+
+</body>
+</html>

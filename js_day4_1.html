@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const a = document.querySelector = ("#a")
+    const b = document.querySelector = ("#b")
+    a.textContent = "<h2> a영역에 출력되는 텍스트 </h2>"
+    b.innerHTML = "<h2> b영역에 출력되는 텍스트 </h2>"
+
+    const header=document.querySelectorAll('h1')
+         header.forEach((head) => {
+             head.textContent="안녕하세요"
+             head.style.color="blue"
+             head.style.backgroundColor="yellow"
+             head.style.padding="10px"
+             })
+             /*
+         header.textContent= "안녕하세요1"
+         header.style.color= "blue"
+         header.style.backgroundColor= "yellow"
+         header.style.padding = "10px"
+         */
+         })
+    /*
+    태그, #아이디, .클래스, [속성=값], 선택자조상 선택자후손, 선택자부조 > 선택자 자손
+    */
+    </script>
+</head>
+<body>
+
+<h2></h2>
+<h2></h2>
+<h1></h1>
+<h1></h1>
+<div id="a"></div>
+<div id="b"></div>
+</body>
+</html>
