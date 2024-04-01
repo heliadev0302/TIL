@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+document.addEventListener("DOMContentLoaded",() => {
+        //  console.log('abc@def'.indexOf('@'))
+const email=document.querySelector('input')
+const p=document.querySelector('p')
+const isVaildEmailAddr=(v)=>{
+    return (v.indexOf('@')>1) && (v.split("@")[1].indexOf(".")>1)
+}
+email.addEventListener("keyup", (event) => {
+        const v=event.currentTarget.value
+        if(isVaildEmailAddr(v)){
+            p.textContent="올바른 이메일 형식"
+            }
+           else{
+           p.textContent="잘못된 이메일 형식"
+           }
+})
+})
+
+        /*
+//document.addEventListener(이벤트명, 이벤트발생시처리구문)
+//1번째 방식(예전방식)
+document.addEventListener("DOMContentLoaded",() => {
+    const textarea=document.querySelector('textarea')
+    const h1=document.querySelector('h1')
+    textarea.addEventListener('keyup',(e)=>{
+        const length=textarea.value.length
+        h1.textContent=`{length}`
+    })
+})
+//2번째 방식(요즘방식)
+myListener = (e)=>{
+   // const length=textarea.value.length //에러발생(리스너 내부에서 textarea참조 못함)
+    const length=e.currentTarget.value.length
+    h1.textContent=`{length}`
+}
+document.addEventListener("DOMContentLoaded",() => {
+    const textarea=document.querySelector('textarea')
+    const h1=document.querySelector('h1')
+    textarea.addEventListener('keyup',myListener)
+})
+
+*/
+        /*
+        document.addEventListener('DOMContentLoaded',()=>{
+            const input = document.querySelector('input')
+            const button = document.querySelector('button')
+            const p = document.querySelector('p')
+
+            button.addEventListener('click', () => {
+            const inch=Number(input.value)
+            if(isNaN(inch)){
+                p.text.COntent = "숫자를 입력하세요"
+                return
+            }
+            const cm=inch*2.54
+            p.textContent=`${cm} cm`
+            })
+        })
+        */
+    </script>
+</head>
+<body>
+<!--inch -> cm-->
+<!--<input type="text"> inch<br>-->
+<!--<button>계산</button>-->
+<!--<p></p>-->
+
+<input type="text"><br>
+<p></p>
+
+<!--<input type="text"> 이메일 주소<br>-->
+<!--<p></p>-->
+<!--1)이메일 주소를 제대로 입력한 경우&ndash;&gt;-->
+<!--올바른 형식 @뒤에.-->
+<!--이메일 형식입니다-->
+
+<!--&lt;!&ndash;2)아닌경우&ndash;&gt;-->
+<!--&lt;!&ndash;이메일 형식이 아닙니다 출력-->
+<!--console.log("hello".indexOf("e"))-->
+<!--console.log("hello@hi".split("@"))-->
+</body>
+</html>

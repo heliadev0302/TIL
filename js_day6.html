@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //방향키를 입력하여 별을 움직이기
+    document.addEventListener('DOMContentLoaded',()=>{
+    const star=document.querySelector('h1')
+    star.style.position='absolute'
+    let [x,y]=[0,0]
+    const block=20
+    const prn=() => {
+        star.style.left=`${x*block}px`
+        star.style.top=`${y*block}px`
+    }
+    prn()
+    document.body.addEventListener('keydown',(event)=>{
+    switch(event.keyCode){    //왼 위 오른쪽 아래, 37~40
+    case 37: //왼 -> x좌표를 왼쪽으로 1칸 이동(x-=1)
+    x-=1
+    break
+    case 38: //위 -> y좌표를 위쪽으로 1칸 이동(y-=1)
+    y-=1
+    break
+    case 39: //오 -> x좌표를 오른쪽으로 1칸 이동(x+=1)
+    x+=1
+    break
+    case 40: //아 -> y좌표를 아래쪽으로 1칸 이동(y+=1)
+    y+=1
+    break
+    }
+    prn()
+    })
+    })
+
+/*
+document.addEventListener('DOMContentLoaded',()=>{
+const h1=document.querySelector('h1')
+const prn=(event) => {
+let output = ''
+output += `alt : ${event.altKey} <br>`
+output += `ctrl : ${event.ctrlKey}<br>`
+output += `shift : ${event.shiftKey}<br>`
+output += `code : ${typeof(event.code)!='undefined'?event.code : event.Keycode}<br>`
+
+h1.innerHTML = output
+
+}
+document.addEventListener('keydown',prn)
+document.addEventListener('keyup',prn)
+
+ })
+ */
+
+        /*
+        document.addEventListener('DOMContentLoaded',() => {
+            const ta = document.querySelector('textarea')
+            const h1 = document.querySelector('h1')
+            ta.addEventListener('keyup',() =>{
+                const len = ta.value.length
+                h1.textContent =  `글자 수 : ${len}`
+            })
+        })
+        */
+    </script>
+</head>
+<body>
+<h1>*</h1>
+<textarea></textarea>
+<!--이벤트모델: 이벤트를 연결하는 방법-->
+<!--document.body.addEventListener(이벤트명,() => {-->
+<!--이벤트 발생시 처리 할 구문-->
+<!--키보드 이벤트 : keydown, keypress, keyup-->
+<!--})-->
+</body>
+</html>
